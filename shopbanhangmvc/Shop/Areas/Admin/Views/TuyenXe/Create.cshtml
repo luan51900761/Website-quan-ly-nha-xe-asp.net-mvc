@@ -1,0 +1,84 @@
+﻿
+@model EF.EF.tuyenxe    
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+@section Header{
+    Thêm tuyến xe
+}
+@{
+    ViewBag.Title = "Create";
+}
+<div class="container">
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                Mã tuyến
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.matuyen, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.matuyen, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                Tên nhân viên
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.tentuyen, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.tentuyen, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                Điểm đi
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.diemdi, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.diemdi, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                Điểm đến
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.diemden, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.diemden, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                Giá vé
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.banggia, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.banggia, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                Hình ảnh
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.image, new { htmlAttributes = new { @type = "file"} })
+                    @Html.ValidationMessageFor(model => model.image, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                Thời gian
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.thoigian, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.thoigian, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Lưu" class="btn btn-success" />
+                </div>
+            </div>
+        </div>
+    }
+
+</div>

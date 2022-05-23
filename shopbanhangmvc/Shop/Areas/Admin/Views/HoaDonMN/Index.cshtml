@@ -1,0 +1,76 @@
+﻿@model IEnumerable<EF.EF.hoadon>
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+@section Header{
+    Quản lí hóa đơn
+}
+@{
+    ViewBag.Title = "Bill";
+}
+<div class="container-fluid">
+    <div class="card-body p-0">
+        @using (Html.BeginForm("Index", "HoaDonMn", FormMethod.Post))
+        {
+            <div class="row form-group col-md-12 justify-content-between p-0 ">
+                <div class="col-8 p-0">
+                    <!--Nhớ set name. Vì không có name thì sẽ không biết dữ liệu truyền đi tên gì.-->
+                    <!--LƯU Ý LÀ NAME PHẢI ĐẶT GIỐNG TÊN BIẾN ĐƯỜNG TRUYỀN VÀO BÊN HÀM VÍ DỤ NAME = "KEYWORD" THÌ HÀM INDEX(STRING KEYWORD)-->
+
+                    <input class="form-control search-box" type="text" value="@ViewBag.Searchkey" margin-bottom:5px" name="keyword" /><!--VIEWBAG ĐỂ HIỆN DỮ LIẸU KHI ĐÃ LOAD LẠI. CÓ THỂ DÙNG TEMPDATA-->
+                </div>
+                <button class="btn btn-success  col-3" type="submit" value="" style="margin-left:5px">Search</button>
+            </div>
+        }
+        <table class=" table table-admin-bill">
+            <tr class="table-success">
+                <th scope="col">STT</th>
+                <th scope="col">Tên chuyến</th>
+                <th scope="col">Họ tên</th>
+                <th scope="col">Số vé</th>
+                <th scope="col">Tổng tiền</th>
+                <th scope="col">SDT</th>
+                <th scope="col">Tình trạng</th>
+                <th scope="col">Tác vụ</th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.mahd)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.chuyenxe.tenchuyen)
+
+                    </td>
+                    <td>
+
+                        @Html.DisplayFor(modelItem => item.hoten)
+
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.soluongve)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.tongtien)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.sdt)
+                    </td>
+                    <td>
+                        @if (item.tinhtrang == 1)
+                        {
+                            <span>✓</span>
+                        }
+                    </td>
+                    <td>
+                        <a href="@Url.Action("Confirm","HoaDonMN", new { mahd = item.mahd }) "><i class="fas fa-money-check-alt"></i></a> <a href="@Url.Action("Detail","HoaDonMN",new {mahd = item.mahd })" target="_blank"><i class="fas fa-file-export"></i></a>
+                        <a href="@Url.Action("Delete","HoaDonMN", new { mahd = item.mahd })" onclick="return confirm('Bạn có muốn xóa hóa đơn này?')">
+                            <i class="fas fa-trash"></i>
+                        </a>
+                    </td>
+                </tr>
+            }
+
+        </table>
+        </div></div>

@@ -1,0 +1,63 @@
+﻿@model IEnumerable<EF.EF.kigui>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<div class="container">
+    <div class="bookticket-title">
+
+        Kí gửi @Model.FirstOrDefault().chuyenxe.tenchuyen
+    </div>
+    @Model.FirstOrDefault().chuyenxe.tuyenxe.diemdi->@Model.FirstOrDefault().chuyenxe.tuyenxe.diemden <br />
+    Ngày: @Model.FirstOrDefault().chuyenxe.ngaydi.Value.Day/@Model.FirstOrDefault().chuyenxe.ngaydi.Value.Month <br />
+    Giờ: @Model.FirstOrDefault().chuyenxe.giodi->@Model.FirstOrDefault().chuyenxe.gioden
+
+    <table class="table table-bordered">
+        <tr>
+            <th>
+                Họ tên người gửi
+            </th>
+            <th>
+                Số điện thoại người gửi
+            </th>
+            <th>
+                Họ tên người nhận
+            </th>
+            <th>
+                Số điện thoại người nhận
+            </th>
+            <th>
+                Địa chỉ nơi nhận
+            </th>
+            <th>
+                Ngày gửi
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.tennguoigui)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.sdtnguoigui)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.tennguoinhan)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.sdtnguoinhan)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.diachinguoinhan)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ngay)
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+<link href="~/Asset/css/mycss.css" rel="stylesheet" />

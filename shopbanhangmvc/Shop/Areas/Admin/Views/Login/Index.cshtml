@@ -1,0 +1,79 @@
+﻿@model account
+@{
+    ViewBag.Title = "Index";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Custom fonts for this template-->
+    <link href="~/Asset/vendor/fontawesome-free/css/all.min.css" rel="styndelesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+          rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="~/Asset/css/sb-admin-2.min.css" rel="stylesheet">
+    <!-- Bootstrap core JavaScript-->
+    <script src="~/Asset/vendor/jquery/jquery.min.js"></script>
+    <script src="~/Asset/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="~/Asset/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="~/Asset/js/sb-admin-2.min.js"></script>
+</head>
+<body class="bg-gradient-primary">
+    <div class="container">
+        <div class="user">
+            <!-- FORM NÀY DÙNG ĐỂ TRUYỀN DỮ LIỆU TỚI MODELS.ACCOUNT ĐÃ KHAI BÁO Ở TRÊN.-->
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(false, null, new { @class = "alert alert-danger validationSumary" })
+                <!-- Outer Row -->
+                <div class="row justify-content-center">
+                    <div class="col-xl-10 col-lg-12 col-md-9">
+                        <div class="card o-hidden border-0 shadow-lg my-5">
+                            <div class="card-body p-0">
+                                <!-- Nested Row within Card Body -->
+                                <div class="row">
+                                    <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+                                    <div class="col-lg-6">
+                                        <div class="p-5">
+                                            <div class="text-center">
+                                                <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
+                                            </div>
+                                            @Html.TextBoxFor(model => model.username, "", new { @class = "form-control form-control-user", @placeholder = "nhap tai khoan", @style = "border-radius: 10rem;font-size: 0.8rem;padding: 1.5rem 1rem" })
+                                            <p></p>
+                                            @Html.TextBoxFor(model => model.password, "", new { @class = "form-control form-control-user", @placeholder = "nhap mat khau", @type = "password", @style = "border-radius: 10rem;font-size: 0.8rem;padding: 1.5rem 1rem" })
+                                            <br>
+                                            <input class="btn btn-primary btn-user btn-block" type="submit" value="Login" />
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            }
+        </div>
+
+    </div>
+    <script type='text/javascript'>
+        $(function () {
+            // When your page loads, create a delay (5s) to hide any errored elements
+            setTimeout(function () { $('.validationSumary').fadeOut(); }, 2000);
+        });
+    </script>
+    <style>
+        .validation-summary-valid {
+            display: none;
+        }
+    </style>
+
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+﻿@model IEnumerable<EF.EF.vexe>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<div class="container">
+    <div class="bookticket-title">
+        Danh sách vé @Model.FirstOrDefault().hoadon.chuyenxe.tenchuyen
+    </div>
+    @Model.FirstOrDefault().hoadon.chuyenxe.tuyenxe.diemdi -> @Model.FirstOrDefault().hoadon.chuyenxe.tuyenxe.diemden <br />
+    Ngày: @Model.FirstOrDefault().hoadon.chuyenxe.ngaydi.Value.Day/@Model.FirstOrDefault().hoadon.chuyenxe.ngaydi.Value.Month <br />
+    Giờ: @Model.FirstOrDefault().hoadon.chuyenxe.giodi -> @Model.FirstOrDefault().hoadon.chuyenxe.gioden
+
+    <table class="table table-bordered">
+        <tr>
+            <th>
+                Họ tên
+            </th>
+            <th>
+                Số điện thoại
+            </th>
+            <th>
+                Ghế
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.hoadon.hoten)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.hoadon.sdt)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.tenghe)
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+<link href="~/Asset/css/mycss.css" rel="stylesheet" />

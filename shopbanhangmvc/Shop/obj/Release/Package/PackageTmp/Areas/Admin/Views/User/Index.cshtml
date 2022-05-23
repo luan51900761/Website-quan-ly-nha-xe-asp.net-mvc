@@ -1,0 +1,38 @@
+﻿@model IEnumerable<EF.EF.account>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+@section Header{
+    <h1>List user</h1>
+}
+<div class="card-body" style="font-size:larger">
+    <p>
+        @Html.ActionLink("Create New", "Create", "User", new { @class = "btn btn-success" })
+    </p>
+    <table class="table" border-collapse="collapse">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.username)
+            </th>
+            <th>
+                action
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.username)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit","User", new { id = item.username }) |     
+                    @Html.ActionLink("Delete", "Delete","User", new { id = item.username })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

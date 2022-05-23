@@ -1,0 +1,68 @@
+﻿@model IEnumerable<EF.EF.tuyenxe>
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+@section Header{
+    Quản lí tuyến xe
+}
+@{
+    ViewBag.Title = "Bill";
+}
+<div class="container-fluid">
+    <div class="card-body p-0">
+        @using (Html.BeginForm("Index", "TuyenXe", FormMethod.Post))
+        {
+        <div class="row form-group col-md-12 justify-content-between p-0 ">
+            <div class="col-8 p-0">
+                <!--Nhớ set name. Vì không có name thì sẽ không biết dữ liệu truyền đi tên gì.-->
+                <!--LƯU Ý LÀ NAME PHẢI ĐẶT GIỐNG TÊN BIẾN ĐƯỜNG TRUYỀN VÀO BÊN HÀM VÍ DỤ NAME = "KEYWORD" THÌ HÀM INDEX(STRING KEYWORD)-->
+
+                <input class="form-control search-box" type="text" value="@ViewBag.Searchkey" margin-bottom:5px" name="keyword" /><!--VIEWBAG ĐỂ HIỆN DỮ LIẸU KHI ĐÃ LOAD LẠI. CÓ THỂ DÙNG TEMPDATA-->
+            </div>
+            <button class="btn btn-success col-3" type="submit" value="" style="margin-left:5px">Search</button>
+        </div>
+        }
+
+        <table class=" table table-admin-bill">
+            <tr class="table-success">
+                <th scope="col">Mã tuyến</th>
+                <th scope="col">Tên tuyến</th>
+                <th scope="col">Điểm đi</th>
+                <th scope="col">Điểm đến </th>
+                <th scope="col">Tác vụ</th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.matuyen)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.tentuyen)
+
+                    </td>
+                    <td>
+
+                        @Html.DisplayFor(modelItem => item.diemdi)
+
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.diemden)
+                    </td>
+
+                    <td>
+                        <a href="@Url.Action("Detail","TuyenXe", new { matuyen = item.matuyen })">
+                            <i class="fas fa-info"></i> &nbsp;
+                        </a>
+                        <a href="@Url.Action("Edit","TuyenXe", new { matuyen = item.matuyen }) "><i class="fa fa-cog"></i></a>&nbsp;
+                        <a href="@Url.Action("Delete","TuyenXE", new { matuyen = item.matuyen })" onclick="return confirm('Bạn có muốn xóa tuyến xe này?')">
+                            <i class="far fa-trash-alt"></i>&nbsp;
+                        </a>
+                    </td>
+                </tr>
+            }
+
+        </table>
+        @Html.ActionLink("Thêm chuyến xe", "Create", "TuyenXe", new { @class = "btn btn-success btn-create" })
+
+    </div></div>

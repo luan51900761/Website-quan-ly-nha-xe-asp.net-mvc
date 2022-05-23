@@ -1,0 +1,89 @@
+﻿@model EF.EF.kigui
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+@section Header{
+   Thêm kí gửi
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="container">
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            Tên người gửi
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.tennguoigui, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.tennguoigui, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            Số điện thoại người gửi
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.sdtnguoigui, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.sdtnguoigui, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            Tên người nhận
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.tennguoinhan, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.tennguoinhan, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            Số điện thoại người nhận
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.sdtnguoinhan, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.sdtnguoinhan, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            Địa chỉ người nhận
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.diachinguoinhan, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.diachinguoinhan, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            mã chuyến xe gửi
+            <div class="col-md-10">
+                @Html.DropDownList("machuyen", new SelectList(ViewBag.machuyen), htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.machuyen, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+Ngày gửi           
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ngay, new { htmlAttributes = new { @class = "form-control", @type = "date" } })
+                @Html.ValidationMessageFor(model => model.ngay, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            Tổng tiền(đơn vị nghìn)
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.chiphi, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.chiphi, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Tạo hóa đơn" class="btn btn-success" />
+            </div>
+        </div>
+    </div>
+</div>
+    }
+

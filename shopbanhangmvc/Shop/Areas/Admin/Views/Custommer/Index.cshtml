@@ -1,0 +1,71 @@
+﻿@model IEnumerable<EF.EF.nhanvien>
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+@section Header{
+    Quản lí nhân viên
+}
+@{
+    ViewBag.Title = "Detail";
+}
+<div class="container-fluid">
+    <div class="card-body p-0">
+        @using (Html.BeginForm("Index", "Custommer", FormMethod.Post))
+        {
+            <div class="row form-group col-md-12 justify-content-between p-0 ">
+                <div class="col-8 p-0">
+                    <!--Nhớ set name. Vì không có name thì sẽ không biết dữ liệu truyền đi tên gì.-->
+                    <!--LƯU Ý LÀ NAME PHẢI ĐẶT GIỐNG TÊN BIẾN ĐƯỜNG TRUYỀN VÀO BÊN HÀM VÍ DỤ NAME = "KEYWORD" THÌ HÀM INDEX(STRING KEYWORD)-->
+
+                    <input class="form-control search-box" type="text" value="@ViewBag.Searchkey" margin-bottom:5px" name="keyword" /><!--VIEWBAG ĐỂ HIỆN DỮ LIẸU KHI ĐÃ LOAD LẠI. CÓ THỂ DÙNG TEMPDATA-->
+                </div>
+                <button class="btn btn-success col-3" type="submit" value="" style="margin-left:5px">Search</button>
+            </div>
+        }
+        <table class=" table table-admin-bill">
+            <tr class="table-success">
+                <th scope="col">Mã nhân viên</th>
+                <th scope="col">Họ tên</th>
+                <th scope="col">Giới tính</th>
+                <th scope="col">Số điện thoại</th>
+                <th scope="col">Chức vụ</th>
+                <th scope="col">Tác vụ</th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.manv)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.tennv)
+
+                    </td>
+                    <td>
+
+                        @Html.DisplayFor(modelItem => item.gioitinh)
+
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.dienthoai)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.loainv.tenloainv)
+                    </td>
+                    <td>
+                        <a href="@Url.Action("Detail","Custommer", new { manv = item.manv })">
+                            <i class="fas fa-info"></i> &nbsp;
+                        </a>
+                        <a href="@Url.Action("Edit","Custommer", new { manv = item.manv }) "><i class="fa fa-cog"></i></a>&nbsp;
+                        <a href="@Url.Action("Delete","Custommer", new { manv = item.manv })" onclick="return confirm('Bạn có muốn xóa nhân viên này?')">
+                            <i class="far fa-trash-alt"></i>&nbsp;
+                        </a>
+                    </td>
+                </tr>
+            }
+
+        </table>
+        @Html.ActionLink("Thêm nhân viên mới", "Create", "TuyenXe", new { @class = "btn btn-success btn-create" })
+
+
+        </div></div>

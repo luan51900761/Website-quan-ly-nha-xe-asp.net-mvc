@@ -1,0 +1,65 @@
+﻿@model EF.EF.tuyenxe
+@using System;
+@section Header{
+    Thông tin tuyến xe
+}
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<div class="container">
+    <div class="panel-body">
+        <div class="row">
+            <!--<div class="col-xs-10 col-sm-10 hidden-md hidden-lg"> <br>
+              <dl>
+                <dt>DEPARTMENT:</dt>
+                <dd>Administrator</dd>
+                <dt>HIRE DATE</dt>
+                <dd>11/12/2013</dd>
+                <dt>DATE OF BIRTH</dt>
+                   <dd>11/12/2013</dd>
+                <dt>GENDER</dt>
+                <dd>Male</dd>
+              </dl>
+            </div>-->
+            <div class=" col-md-9 col-lg-9 ">
+
+                <table class="table table-user-information">
+                    <tbody>
+
+                        <tr>
+                            <td><img src="@Model.image" style="height:100px; width:150px;" /></td>
+                        </tr>
+                        <tr>
+                            <td>Mã tuyến:</td>
+                            <td>@Model.matuyen</td>
+                        </tr>
+                        <tr>
+ 
+                            <td>Tên tuyến:</td>
+                            <td>@Model.tentuyen</td>
+                        </tr>
+                        <tr>
+                            <td>Điểm đi:</td>
+                            <td>@Model.diemdi </td>
+                        </tr>
+                        <tr>
+                            <td>Điểm đến:</td>
+                            <td>@Model.diemden</td>
+                        </tr>
+
+                        <tr>
+                        <tr>
+                            <td>Giá vé:</td>
+                            <td>@Model.banggia</td>
+                        </tr>
+                        <tr>
+                            <td>thời lượng: </td>
+                            <td>@Model.thoigian</td>
+                        </tr>
+            
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <link href="~/Asset/css/DetailCustommer.css" rel="stylesheet" />

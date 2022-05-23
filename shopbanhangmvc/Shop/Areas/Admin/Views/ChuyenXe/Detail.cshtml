@@ -1,0 +1,70 @@
+﻿@model EF.EF.chuyenxe
+@using System;
+@section Header{
+    Thông tin chuyến xe
+}
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<div class="container">
+    <div class="panel-body">
+        <div class="row">
+            <!--<div class="col-xs-10 col-sm-10 hidden-md hidden-lg"> <br>
+              <dl>
+                <dt>DEPARTMENT:</dt>
+                <dd>Administrator</dd>
+                <dt>HIRE DATE</dt>
+                <dd>11/12/2013</dd>
+                <dt>DATE OF BIRTH</dt>
+                   <dd>11/12/2013</dd>
+                <dt>GENDER</dt>
+                <dd>Male</dd>
+              </dl>
+            </div>-->
+            <div class=" col-md-9 col-lg-9 ">
+
+                <table class="table table-user-information">
+                    <tbody>
+                        <tr>
+                            <td>Mã chuyến:</td>
+                            <td>@Model.machuyen</td>
+                        </tr>
+                        <tr>
+
+                            <td>Tên chuyến:</td>
+                            <td>@Model.tenchuyen</td>
+                        </tr>
+                        <tr>
+                            <td>Mã tuyến:</td>
+                            <td>@Model.matuyen </td>
+                        </tr>
+                        <tr>
+                            <td>Giờ đi:</td>
+                            <td>@Model.giodi </td>
+                        </tr>
+                        <tr>
+                            <td>Giờ đến:</td>
+                            <td>@Model.gioden</td>
+                        </tr>
+
+                        <tr>
+                        <tr>
+                            <td>Lơ xe:</td>
+                            <td>@Model.nhanvien.tennv</td>
+                        </tr>
+                        <tr>
+                            <td>Tài xế: </td>
+                            <td>@Model.nhanvien1.tennv</td>
+                        </tr>
+                        <tr>
+                            <td>Ngày đi: </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => Model.ngaydi)
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <link href="~/Asset/css/DetailCustommer.css" rel="stylesheet" />

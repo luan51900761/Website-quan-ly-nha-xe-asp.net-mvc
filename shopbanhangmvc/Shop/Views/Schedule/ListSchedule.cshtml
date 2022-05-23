@@ -1,0 +1,62 @@
+﻿@model IEnumerable<EF.CustomModel.ScheduleList>
+<table class="table mt-5">
+    <thead>
+        <tr class="table-success">
+            <th scope="col">Tên chuyến</th>
+            <th scope="col">Giờ đi</th>
+            <th scope="col" colspan="1">Giờ đến</th>
+            <th scope="col" colspan="2">Ngày đi</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            //    var ngay = item.getngay();
+            //    var now =
+            //    if(ngay)
+            if (item.ngaydi.Value.CompareTo(DateTime.Now.Date) == 0 && item.giodi.Value.CompareTo(DateTime.Now.TimeOfDay) > 0)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.tenchuyen)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.giodi)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.gioden)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ngaydi)
+                    </td>
+                    <td>
+                        <a href="@Url.Action("book", "Ticket", new { machuyen = item.machuyen })">Đặt vé</a>
+                    </td>
+                </tr>
+            }
+            else if (item.ngaydi.Value.CompareTo(DateTime.Now) > 0)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.tenchuyen)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.giodi)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.gioden)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ngaydi)
+                    </td>
+                    <td>
+                        <a href="@Url.Action("book", "Ticket", new { machuyen = item.machuyen })">Đặt vé</a>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+
+
+

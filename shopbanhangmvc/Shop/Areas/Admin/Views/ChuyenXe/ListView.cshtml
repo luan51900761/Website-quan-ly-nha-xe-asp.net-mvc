@@ -1,0 +1,54 @@
+﻿@model IEnumerable<EF.EF.chuyenxe>
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+@section Header{
+    Quản lí chuyến xe
+}
+@{
+    ViewBag.Title = "Chuyến";
+}
+<div class="container-fluid">
+    <div class="card-body p-0">
+        <table class=" table table-admin-bill">
+            <tr class="table-success">
+                <th scope="col">Mã chuyến</th>
+                <th scope="col">Tên Tuyến</th>
+                <th scope="col">Tên Chuyến</th>
+                <th scope="col">Ngày đi </th>
+                <th scope="col">Tác vụ </th>
+
+            </tr>
+            @foreach (var item in Model)
+            {
+                if ((item.ngaydi.Value.DayOfYear - DateTime.Now.DayOfYear) < 7 && (item.ngaydi.Value.DayOfYear - DateTime.Now.DayOfYear) >= 0)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.machuyen)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.tuyenxe.tentuyen)
+
+                        </td>
+                        <td>
+
+                            @Html.DisplayFor(modelItem => item.tenchuyen)
+
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ngaydi)
+                        </td>
+                        <td>
+                            <a href="@Url.Action("ListTicket", "ChuyenXe", new { machuyen = item.machuyen })" target="_blank"><i class="far fa-address-book"></i></a>
+                            <a href="@Url.Action("ListShipping", "ChuyenXe", new { machuyen = item.machuyen }) " target="_blank"><i class="fas fa-clipboard-list"></i></a>
+
+                        </td>
+                    </tr>
+                }
+            }
+
+        </table>
+
+
+        </div></div>

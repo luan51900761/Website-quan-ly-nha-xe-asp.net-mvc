@@ -1,0 +1,54 @@
+﻿@model Shop.Areas.Admin.Models.account
+
+@{
+    Layout = "";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="~/Asset/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/Asset/vendor/jquery/jquery.min.js"></script>
+    <link href="~/Asset/css/LoginUser.css" rel="stylesheet">
+</head>
+<body>
+    <div class="wrapper fadeInDown" style="background-color: rgba(93, 231, 226, 0.27)" ;>
+        <div id="formContent">
+            <!-- Tabs Titles -->
+            <!-- Icon -->
+            <div class="fadeIn first">
+                <img src="~/Content/img/logo2.jpg" id="icon-login" alt="" />
+            </div>
+
+            <!-- Login Form -->
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(false, null, new { @class = "alert alert-danger validationSumary" })
+                @Html.TextBoxFor(model => model.username, "", new { @class = "fadeIn second", @id = "username", @name = "login", @placeholder = "username" })
+                @Html.TextBoxFor(model => model.password, "", new { @class = "fadeIn Third", @id = "password", @name = "login", @placeholder = "password", @type = "password" })
+                <input type="submit" class="fadeIn fourth" value="Log In">
+            }
+
+            <!-- Sign up -->
+            <div id="formFooter">
+                <a class="underlineHover" href="@Url.Action("SignUp","LoginUser")">Sign up</a>
+            </div>
+
+        </div>
+    </div>
+</body>
+<script type='text/javascript'>
+    $(function () {
+        // When your page loads, create a delay (5s) to hide any errored elements
+        setTimeout(function () { $('.validationSumary').fadeOut(); }, 2000);
+    });
+</script>
+<style>
+    .validation-summary-valid {
+        display: none;
+    }
+</style>
+</html>

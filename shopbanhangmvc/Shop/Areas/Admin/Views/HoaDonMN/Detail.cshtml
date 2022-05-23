@@ -1,0 +1,108 @@
+﻿@model IEnumerable<EF.EF.vexe>
+@{
+    Layout = "";
+}
+@section Header{
+    Hóa đơn đặt vé
+}
+<div>
+    <table class="body-wrap">
+        <tbody>
+            <tr>
+                <td></td>
+                <td class="container" width="600">
+                    <div class="content">
+                        <table class="main" width="100%" cellpadding="0" cellspacing="0">
+                            <tbody>
+                                <tr>
+                                    <td class="content-wrap aligncenter">
+                                        <table width="100%" cellpadding="0" cellspacing="0">
+                                            @foreach (var item in Model)
+                                            {
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="content-block" style="text-align:center">
+                                                            <h2>HÓA ĐƠN ĐẶT VÉ</h2>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="content-block">
+                                                            <table class="invoice">
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td>
+                                                                            @item.hoadon.hoten<br>@item.hoadon.sdt<br>@item.hoadon.ngaydat
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <table class="invoice-items" cellpadding="0" cellspacing="0">
+                                                                                <tbody>
+                                                                                    <tr>
+                                                                                        <td>Số lượng vé</td>
+
+                                                                                        <td class="alignright">@item.hoadon.soluongve</td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td>tên chuyến</td>
+                                                                                        <td class="alignright">@item.hoadon.chuyenxe.tenchuyen</td>
+                                                                                    </tr>
+
+                                                                                    <tr>
+                                                                                        <td>Số điện thoại</td>
+                                                                                        <td class="alignright">@item.hoadon.sdt</td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td>biển số xe</td>
+                                                                                        <td class="alignright">@item.hoadon.chuyenxe.xe.bienso</td>
+                                                                                    </tr>
+                                                                                    <tr>
+                                                                                        <td>Số ghế: </td>
+                                                                                        <td class="alignright">
+                                                                                            @item.tenghe
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                    <tr class="total">
+                                                                                        <td class="alignright" width="80%">Số tiền </td>
+                                                                                        <td class="alignright">@item.hoadon.tongtien đ</td>
+                                                                                    </tr>
+                                                                                </tbody>
+
+                                                                            </table>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="content-block"style="text-align:center">
+                                                            ALKTravel Company.
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+
+                                            }
+                                        </table>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="footer">
+                            <table width="100%">
+                                <tbody>
+                                    <tr>
+                                        <td class="aligncenter content-block">Questions? Email <a href="mailto:">support@company.inc</a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<link href="~/Asset/css/BillDetail.css" rel="stylesheet" />

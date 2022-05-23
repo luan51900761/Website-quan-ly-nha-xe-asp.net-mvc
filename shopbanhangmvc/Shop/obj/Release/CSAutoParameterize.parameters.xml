@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="DBContextSV-Web.config Connection String" description="DBContextSV Connection String used in web.config by the application to access the database." defaultValue="data source=DESKTOP-C5V7D9G\SQLEXPRESS;initial catalog=webbanhang;user id=sa;MultipleActiveResultSets=True;App=EntityFramework" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\luanp\\source\\repos\\shopbanhangmvc\\Shop\\obj\\Release\\Package\\PackageTmp\\Areas\\Admin\\Views\\web\.config$" match="/configuration/connectionStrings/add[@name='DBContextSV']/@connectionString" />
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\luanp\\source\\repos\\shopbanhangmvc\\Shop\\obj\\Release\\Package\\PackageTmp\\Views\\Web\.config$" match="/configuration/connectionStrings/add[@name='DBContextSV']/@connectionString" />
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\luanp\\source\\repos\\shopbanhangmvc\\Shop\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DBContextSV']/@connectionString" />
+  </parameter>
+</parameters>

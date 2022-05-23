@@ -1,0 +1,77 @@
+﻿@model IEnumerable<EF.EF.tuyenxe>
+<table class="table table-hover table-schedule">
+    <thead>
+        <tr class="table-success">
+            <th scope="col">Tên tuyến</th>
+            <th scope="col">Nơi đi</th>
+            <th scope="col">Nơi đến</th>
+            <th scope="col">Thời gian đi</th>
+            <th scope="col" colspan="2">Giá vé</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="table-warning">
+            <th colspan="6">HỒ CHÍ MINH → </th>
+            @foreach (var item in Model)
+            {
+                if (item.diemdi.Contains("Hồ Chí Minh"))
+                {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.tentuyen)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.diemdi)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.diemden)
+                    </td>
+                    <td>
+                        &nbsp;@Html.DisplayFor(modelItem => item.thoigian)H
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.banggia).000đ
+                    </td>
+                    <td>
+                        <a href="@Url.Action("ListSchedule", "Schedule", new { from = item.diemdi, to = item.diemden })">Xem lịch</a>
+                    </td>
+                </tr>
+            }
+        }
+            </tr>
+
+            <tr class="table-warning">
+                <th colspan="6"> → HỒ CHÍ MINH</th>
+                @foreach (var item in Model)
+                {
+                    if (item.diemden.Contains("Hồ Chí Minh"))
+                    {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.tentuyen)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.diemdi)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.diemden)
+                        </td>
+                        <td>
+                            &nbsp;@Html.DisplayFor(modelItem => item.thoigian)H
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.banggia).000đ
+                        </td>
+                        <td>
+                            <a href="@Url.Action("ListSchedule", "Schedule", new { from = item.diemdi, to = item.diemden })">Xem lịch</a>
+                        </td>
+                    </tr>
+                }
+            }
+                </tr>
+
+
+
+            </tbody>
+</table>
+

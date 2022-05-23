@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <setParameter name="IIS Web Application Name" value="ShoppingNow.Some.com" />
+  <setParameter name="DBContextSV-Web.config Connection String" value="data source=DESKTOP-C5V7D9G\SQLEXPRESS;initial catalog=webbanhang;user id=sa;MultipleActiveResultSets=True;App=EntityFramework" />
+</parameters>

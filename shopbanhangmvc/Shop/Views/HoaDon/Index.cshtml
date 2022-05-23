@@ -1,0 +1,62 @@
+﻿@model IEnumerable<EF.EF.hoadon>
+<div class="bookticket-title">HÓA ĐƠN<br /></div>
+<a href="@Url.Action("Pay","Start")">Hướng dẫn thanh toán</a>
+<table class=" table table-user-bill">
+    <tr class="table-success">
+        <th scope="col">STT</th>
+        <th scope="col">Tên chuyến</th>
+        <th scope="col">Họ tên</th>
+        <th scope="col">Số vé</th>
+        <th scope="col">Tổng tiền</th>
+        <th scope="col">SDT</th>
+        <th scope="col">Tình trạng</th>
+        <th scope="col">Tác vụ</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.mahd)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.chuyenxe.tenchuyen)
+
+    </td>
+    <td>
+
+        @Html.DisplayFor(modelItem => item.hoten)
+
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.soluongve)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.tongtien)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.sdt)
+    </td>
+    <td>
+        @if (item.tinhtrang == 1)
+        {
+            <span>✓</span>
+        }
+    </td>
+    <td>
+        <a href="@Url.Action("List","Ticket", new { mahd = item.mahd }) ">Xem</a>
+        @if (item.tinhtrang == 1)
+        {
+            <a href="@Url.Action("PaidBillDeleteAlert","Start") "><i class="text-danger fas fa-trash"></i></a>
+        }
+
+        @if (item.tinhtrang == 0)
+        {
+            <a href="@Url.Action("Delete","HoaDon", new { mahd = item.mahd })" onclick="return confirm('Bạn có muốn xóa hóa đơn này?')">
+                <i class="text-danger fas fa-trash"></i>
+            </a>    
+        }
+    </td>
+</tr>
+    }
+
+</table>

@@ -1,0 +1,52 @@
+C:\Users\luanp\source\repos\shopbanhangmvc\EF\bin\Debug\EF.dll.config
+C:\Users\luanp\source\repos\shopbanhangmvc\EF\bin\Debug\EF.dll
+C:\Users\luanp\source\repos\shopbanhangmvc\EF\bin\Debug\EF.pdb
+C:\Users\luanp\source\repos\shopbanhangmvc\EF\bin\Debug\EntityFramework.dll
+C:\Users\luanp\source\repos\shopbanhangmvc\EF\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\luanp\source\repos\shopbanhangmvc\EF\bin\Debug\EntityFramework.xml
+C:\Users\luanp\source\repos\shopbanhangmvc\EF\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\luanp\source\repos\shopbanhangmvc\EF\obj\Debug\EF.csprojAssemblyReference.cache
+C:\Users\luanp\source\repos\shopbanhangmvc\EF\obj\Debug\EF.csproj.CoreCompileInputs.cache
+C:\Users\luanp\source\repos\shopbanhangmvc\EF\obj\Debug\EF.csproj.CopyComplete
+C:\Users\luanp\source\repos\shopbanhangmvc\EF\obj\Debug\EF.dll
+C:\Users\luanp\source\repos\shopbanhangmvc\EF\obj\Debug\EF.pdb
+C:\Users\luanp\source\repos\shopbanhangmvc\EF\bin\Debug\Facebook.dll
+C:\Users\luanp\source\repos\shopbanhangmvc\EF\bin\Debug\Facebook.xml
+C:\Users\luanp\source\repos\shopbanhangmvc\EF\bin\Debug\PagedList.dll
+C:\Users\luanp\source\repos\shopbanhangmvc\EF\bin\Debug\PagedList.Mvc.dll
+C:\Users\luanp\source\repos\shopbanhangmvc\EF\bin\Debug\PagedList.xml
+C:\Users\luanp\source\repos\shopbanhangmvc\EF\bin\Debug\PagedList.Mvc.xml
+D:\backup\Môn Học\Lập trình web và ứng dụng\shopbanhangmvc\EF\bin\Debug\EF.dll.config
+D:\backup\Môn Học\Lập trình web và ứng dụng\shopbanhangmvc\EF\bin\Debug\EF.dll
+D:\backup\Môn Học\Lập trình web và ứng dụng\shopbanhangmvc\EF\bin\Debug\EF.pdb
+D:\backup\Môn Học\Lập trình web và ứng dụng\shopbanhangmvc\EF\bin\Debug\EntityFramework.dll
+D:\backup\Môn Học\Lập trình web và ứng dụng\shopbanhangmvc\EF\bin\Debug\EntityFramework.SqlServer.dll
+D:\backup\Môn Học\Lập trình web và ứng dụng\shopbanhangmvc\EF\bin\Debug\PagedList.dll
+D:\backup\Môn Học\Lập trình web và ứng dụng\shopbanhangmvc\EF\bin\Debug\PagedList.Mvc.dll
+D:\backup\Môn Học\Lập trình web và ứng dụng\shopbanhangmvc\EF\bin\Debug\EntityFramework.xml
+D:\backup\Môn Học\Lập trình web và ứng dụng\shopbanhangmvc\EF\bin\Debug\EntityFramework.SqlServer.xml
+D:\backup\Môn Học\Lập trình web và ứng dụng\shopbanhangmvc\EF\bin\Debug\Facebook.xml
+D:\backup\Môn Học\Lập trình web và ứng dụng\shopbanhangmvc\EF\bin\Debug\PagedList.xml
+D:\backup\Môn Học\Lập trình web và ứng dụng\shopbanhangmvc\EF\bin\Debug\PagedList.Mvc.xml
+D:\backup\Môn Học\Lập trình web và ứng dụng\shopbanhangmvc\EF\obj\Debug\EF.csproj.CoreCompileInputs.cache
+D:\backup\Môn Học\Lập trình web và ứng dụng\shopbanhangmvc\EF\obj\Debug\EF.csproj.CopyComplete
+D:\backup\Môn Học\Lập trình web và ứng dụng\shopbanhangmvc\EF\obj\Debug\EF.dll
+D:\backup\Môn Học\Lập trình web và ứng dụng\shopbanhangmvc\EF\obj\Debug\EF.pdb
+D:\backup\Môn Học\Lập trình web và ứng dụng\shopbanhangmvc\EF\obj\Debug\EF.csproj.AssemblyReference.cache
+C:\Users\Admin\Desktop\29-51900293-51900350-51900761\shopbanhangmvc\EF\bin\Debug\EF.dll.config
+C:\Users\Admin\Desktop\29-51900293-51900350-51900761\shopbanhangmvc\EF\bin\Debug\EF.dll
+C:\Users\Admin\Desktop\29-51900293-51900350-51900761\shopbanhangmvc\EF\bin\Debug\EF.pdb
+C:\Users\Admin\Desktop\29-51900293-51900350-51900761\shopbanhangmvc\EF\bin\Debug\EntityFramework.dll
+C:\Users\Admin\Desktop\29-51900293-51900350-51900761\shopbanhangmvc\EF\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Admin\Desktop\29-51900293-51900350-51900761\shopbanhangmvc\EF\bin\Debug\PagedList.dll
+C:\Users\Admin\Desktop\29-51900293-51900350-51900761\shopbanhangmvc\EF\bin\Debug\PagedList.Mvc.dll
+C:\Users\Admin\Desktop\29-51900293-51900350-51900761\shopbanhangmvc\EF\bin\Debug\EntityFramework.xml
+C:\Users\Admin\Desktop\29-51900293-51900350-51900761\shopbanhangmvc\EF\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Admin\Desktop\29-51900293-51900350-51900761\shopbanhangmvc\EF\bin\Debug\Facebook.xml
+C:\Users\Admin\Desktop\29-51900293-51900350-51900761\shopbanhangmvc\EF\bin\Debug\PagedList.xml
+C:\Users\Admin\Desktop\29-51900293-51900350-51900761\shopbanhangmvc\EF\bin\Debug\PagedList.Mvc.xml
+C:\Users\Admin\Desktop\29-51900293-51900350-51900761\shopbanhangmvc\EF\obj\Debug\EF.csproj.AssemblyReference.cache
+C:\Users\Admin\Desktop\29-51900293-51900350-51900761\shopbanhangmvc\EF\obj\Debug\EF.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Desktop\29-51900293-51900350-51900761\shopbanhangmvc\EF\obj\Debug\EF.csproj.CopyComplete
+C:\Users\Admin\Desktop\29-51900293-51900350-51900761\shopbanhangmvc\EF\obj\Debug\EF.dll
+C:\Users\Admin\Desktop\29-51900293-51900350-51900761\shopbanhangmvc\EF\obj\Debug\EF.pdb

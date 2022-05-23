@@ -1,0 +1,362 @@
+﻿*{
+    box-sizing: border-box;
+}
+.repass{
+    margin-top: 7px;
+}
+.ul.pagination {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+}
+
+ul.pagination li {
+    display: inline;
+}
+
+    ul.pagination li a {
+        color: green;
+        float: left;
+        padding: 8px 16px;
+        text-decoration: none;
+        transition: background-color .3s;
+    }
+
+        ul.pagination li a.active {
+            background-color: blue;
+            color: green;
+        }
+
+        ul.pagination li a:hover:not(.active) {
+            background-color: #ddd;
+        }
+.search-box{
+    width:500px;
+    margin-bottom: 5px;
+    box-shadow:inherit;
+}
+.zoom {
+    transition: transform .2s;
+    transition: transform .2s;
+}
+.price{
+    color: red;
+}
+.des{
+    color: black;
+}
+
+.zoom:hover {
+    transform: scale(1.15);
+}
+a{
+    text-decoration:none!important;
+}
+div.product-detail{
+    text-align:justify;
+    padding:30px;
+}
+
+/*CSS FOR DETAIL PAGE*/
+.img-product {
+    height: auto;
+    width: 100%;
+    margin-top: 20px;
+}
+.p-2{
+    padding:.5rem;
+}
+.product-page {
+    background-color: white;
+    text-align: justify;
+    color: black;
+}
+.product-name, .b{
+    flex:50%;
+}
+.product-name {
+    font-size: 40px;
+    font-weight: bold;
+    padding-top: 15%!important;
+}
+.b1, .b2 {
+    flex: 50%;
+    padding:.5rem;
+}
+.b21, .b22 {
+    margin: 10px 5px;
+    flex: 20%;
+    border:1px solid;
+    position: relative;
+    background-color: red;
+    color: white;
+    padding: 15px;
+    border-radius:7px;
+}
+.gift{
+    position: absolute;
+    top: -10px;
+    color: blue;
+    background-color: red;
+    padding:5px;
+    border-radius:5px;
+}
+.card{
+    text-decoration:none;
+    border-radius:10px;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+}
+
+.heading {
+    height: 72px;
+}
+
+.nav-bar {
+    line-height: 40px;
+}
+
+.container-fluid {
+    margin-left: 8%;
+    width: 84%;
+}
+
+.navigation {
+    width: 100%;
+}
+
+.group-icon {
+    font-size: 23px;
+    display: flex;
+    position: absolute;
+    right: 0;
+}
+
+    .group-icon div {
+        margin: 0 15px;
+    }
+
+
+
+.navbar-nav .nav-item {
+    margin: 0 10px;
+}
+
+.nav-item:hover .dropdown-menu.hover-show {
+    display: block;
+}
+
+.logo img{
+    height:65px;
+    width:120px;
+}
+@media (max-width: 992px) {
+    .group-icon {
+        position: absolute;
+        top: 20px;
+        right: 80px;
+    }
+}
+
+/*HEADING*/
+.heading{
+    height:auto;
+}
+/*CSS FOR START PAGE*/
+/*CSS FOR START PAGE*/
+.card-area .col-md-5{
+    padding-left:0px;
+}
+.card-area .card-img {
+    height: 100%;
+}
+.content .content-book-ticket {
+    position: relative;
+    margin-top: 20px;
+    margin-bottom: 50px;
+    width: 100%;
+    height: 170px;
+    box-shadow: 0px 7px 30px -10px grey;
+    border-radius: 20px;
+}
+.form-row {
+    width: 90%;
+    padding-top: 25px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.form-ticket {  
+    width: 90%;
+    height: 100px !important;
+    border-radius: 10px !important;
+    padding: 10px;
+}
+
+.form-ticket:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgb(0 123 255 / 25%);
+}
+
+
+.form-ticket:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgb(0 123 255 / 25%);
+}
+.form-start-place, .form-end-place ,.form-time{
+    position: relative;
+
+}
+.input-start-place, .input-end-place, .input-time {
+    font-size: 25px;
+    text-align: center;
+    font-weight: bold;
+    border: 3px solid rgba(0, 0, 0, .5);
+}
+.start-place .btn, .end-place .btn, .time .label-time{
+    position: absolute;
+    font-size: 20px;
+    background-color: white;
+    line-height: 100%;
+    padding: 0px 12px;
+    top: 50%;
+    left: 45%;
+    transform: translate(-50%, -50%);
+}
+.button-search-trip {
+    position: absolute;
+    font-size: 20px;
+    padding: 12px 16px;
+    top: 85%;
+    right: 10%;
+}
+.content-popular-trip .card-title{
+    font-size:17px;
+    font-weight:bold;
+    text-transform:uppercase;
+    color:forestgreen;
+}
+
+.content-popular-trip .card-text {
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.content-popular-trip {
+    display: flex;
+    justify-content: center;
+}
+    /*CSS FOR FOUNDER*/
+    .content-founder {
+        text-align: center;
+        margin-top: 30px;
+    }
+.content-founder-img img {
+    height: 250px;
+    width: 250px;
+    margin:auto;
+}
+
+
+
+.content-founder-title {
+    font-size: 40px;
+    font-weight: bold;
+    padding-bottom:20px;
+}
+
+.name-founder {
+
+    font-size:20px;
+    font-weight:bold;
+}
+
+
+/*CSSFOR CAROUSEL*/
+@media (max-width: 767px) {
+    .card .img-wrapper {
+        height: 17em;
+    }
+}
+@media (max-width: 550px) {
+    .search-box {
+        width: 300px; /* The width is 100%, when the viewport is 800px or smaller */
+    }
+    .d-flex{
+        display:block!important;
+    }
+
+}
+
+
+.nav-item .nav-menu{
+    color:black!important;
+}
+/*CSS FOR SCHEDULE PAGE*/
+.table-schedule {
+    margin-top: 30px;
+    outline: 2px solid lightgrey;
+    border-radius: 5px;
+}
+
+
+
+/*CSS for booking page*/
+
+
+.form-bookticket {
+    margin: auto;
+    width: 80%;
+    padding: 10px;
+    outline: 1px solid #e6e6e6;
+    border-radius: 20px;
+}
+
+.bookticket-title {
+    margin: 3% 0%;
+    text-align: center;
+    font-size: 50px;
+    font-weight: bold;
+}
+
+
+.table-user-bill{
+    text-align:center;
+    text-decoration:none;
+}
+
+.img-ticket{
+    height:200px;
+    width:200px;
+}
+.footer{
+    margin-top:110px;
+}
+.form-search-bill {
+    text-align: center;
+}
+
+    .form-search-bill .btn-search {
+        margin-top:20px;
+        height: 50px;
+        width: 100px;
+    }
+
+.account-dropdown {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}

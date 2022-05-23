@@ -1,0 +1,110 @@
+﻿@using EF.DAO
+@model EF.EF.kigui
+
+@{ 
+    Layout = "";
+}
+<div>
+    <table class="body-wrap">
+        <tbody>
+            <tr>
+                <td></td>
+                <td class="container" width="600">
+                    <div class="content">
+                        <table class="main" width="100%" cellpadding="0" cellspacing="0">
+                            <tbody>
+                                <tr>
+                                    <td class="content-wrap aligncenter">
+                                        <table width="100%" cellpadding="0" cellspacing="0">
+                                            <tbody>
+                                                <tr>
+                                                    <td class="content-block" style="text-align:center;">
+                                                        <h2>HÓA ĐƠN KÍ GỬI</h2>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="content-block">
+                                                        <table class="invoice">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>@Html.DisplayFor(item => item.tennguoigui)<br>@Model.sdtnguoigui<br>@Model.ngay</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <table class="invoice-items" cellpadding="0" cellspacing="0">
+                                                                            <tbody>
+                                                                                <tr>
+                                                                                    <td>Mã tra cứu</td>
+                                                                                    @{
+                                                                                        string ma = "ALKTravel" + Crypt.EncodeServerName(Model.makg.ToString());
+                                                                                    }
+                                                                                    <td class="alignright"><img src="https://api.qrserver.com/v1/create-qr-code/?size=70x70&data={@ma}" alt="Alternate Text" /></td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>Người nhận</td>
+                                                                                    <td class="alignright">@Model.tennguoinhan</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>Số điện thoại</td>
+                                                                                    <td class="alignright">@Model.sdtnguoinhan</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>Địa chỉ</td>
+                                                                                    <td class="alignright">@Model.diachinguoinhan</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>Nhân viên sử lý</td>
+                                                                                    <td class="alignright">@Model.nhanvien.tennv</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>Tình trạng</td>
+                                                                                    @if (Model.chuyenxe.ngaydi == DateTime.Now)
+                                                                                    {
+                                                                                        <td class="alignright">Đang vận chuyển</td>
+                                                                                    }
+                                                                                    else if (Model.chuyenxe.ngaydi < DateTime.Now)
+                                                                                    {
+                                                                                        <td class="alignright">Đã đến nơi</td>
+                                                                                    }
+                                                                                </tr>
+                                                                                <tr class="total">
+                                                                                    <td class="alignright" width="80%">Số tiền</td>
+                                                                                    <td class="alignright">@Html.DisplayFor(item => item.chiphi).000đ</td>
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="content-block" style="text-align:center;">
+                                                        ALKTravel Company.
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="footer">
+                            <table width="100%">
+                                <tbody>
+                                    <tr>
+                                        <td class="aligncenter content-block">Questions? Email <a href="mailto:">support@company.inc</a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<link href="~/Asset/css/BillDetail.css" rel="stylesheet" />

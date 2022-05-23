@@ -1,0 +1,78 @@
+﻿@model EF.EF.nhanvien
+@using System;
+@section Header{
+    Thông tin nhân viên
+}
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<div class="container">
+    <div class="panel-body">
+        <div class="row">
+            <!--<div class="col-xs-10 col-sm-10 hidden-md hidden-lg"> <br>
+              <dl>
+                <dt>DEPARTMENT:</dt>
+                <dd>Administrator</dd>
+                <dt>HIRE DATE</dt>
+                <dd>11/12/2013</dd>
+                <dt>DATE OF BIRTH</dt>
+                   <dd>11/12/2013</dd>
+                <dt>GENDER</dt>
+                <dd>Male</dd>
+              </dl>
+            </div>-->
+            <div class=" col-md-9 col-lg-9 ">
+
+                <table class="table table-user-information">
+                    <tbody>
+
+                        <tr>
+                            <td><img src="@Model.hinhanh" style="height:100px; width:100px;" /></td>
+                        </tr>
+                        <tr>
+                            <td>Tên:</td>
+                            <td>@Model.tennv</td>
+                        </tr>
+                        <tr>
+                            @{ DateTime a = Model.ngaysinh.Value;
+                            }
+
+                            <td>Ngày Sinh:</td>
+                            <td>@a.Day/@a.Month/@a.Year</td>
+                        </tr>
+                        <tr>
+                            <td>Giới tính:</td>
+                            <td>@Model.gioitinh</td>
+                        </tr>
+                        <tr>
+                            <td>Địa chỉ:</td>
+                            <td>@Model.diachi</td>
+                        </tr>
+
+                        <tr>
+                        <tr>
+                            <td>CMND/CCCD:</td>
+                            <td>@Model.cmnd</td>
+                        </tr>
+                        <tr>
+                            <td>Số điện thoại: </td>
+                            <td>@Model.dienthoai</td>
+                        </tr>
+                        <tr>
+                            <td>Email: </td>
+                            <td>@Model.email </td>
+                        </tr>
+                        <tr>
+                            <td>Chức vụ </td>
+                            <td>@Model.loainv.tenloainv </td>
+                        </tr>
+                        <tr>
+                            <td>Tài khoản </td>
+                            <td>@Model.username </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <link href="~/Asset/css/DetailCustommer.css" rel="stylesheet" />

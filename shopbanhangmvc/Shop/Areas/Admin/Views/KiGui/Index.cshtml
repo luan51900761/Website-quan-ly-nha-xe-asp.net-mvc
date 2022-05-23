@@ -1,0 +1,78 @@
+﻿@model IEnumerable<EF.EF.kigui>
+
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+@section Header{
+    Quản lí kí gửi
+}
+@{
+    ViewBag.Title = "Bill";
+}
+<div class="container-fluid">
+    <div class="card-body p-0">
+        @using (Html.BeginForm("Index", "KiGui", FormMethod.Post))
+        {
+            <div class="row form-group col-md-12 justify-content-between p-0 ">
+                <div class="col-8 p-0">
+                    <!--Nhớ set name. Vì không có name thì sẽ không biết dữ liệu truyền đi tên gì.-->
+                    <!--LƯU Ý LÀ NAME PHẢI ĐẶT GIỐNG TÊN BIẾN ĐƯỜNG TRUYỀN VÀO BÊN HÀM VÍ DỤ NAME = "KEYWORD" THÌ HÀM INDEX(STRING KEYWORD)-->
+
+                    <input class="form-control search-box" type="text" value="@ViewBag.Searchkey" margin-bottom:5px" name="keyword" /><!--VIEWBAG ĐỂ HIỆN DỮ LIẸU KHI ĐÃ LOAD LẠI. CÓ THỂ DÙNG TEMPDATA-->
+                </div>
+                <button class="btn btn-success  col-3" type="submit" value="" style="margin-left:5px">Search</button>
+            </div>
+        }
+        <table class=" table table-admin-bill">
+            <tr class="table-success">
+                <th scope="col">STT</th>
+                <th scope="col">Người gửi</th>
+                <th scope="col">Sdt người gửi</th>
+                <th scope="col">Người nhận</th>
+                <th scope="col">Sdt người nhận</th>
+                <th scope="col">Địa chỉ người nhận</th>
+                <th scope="col">Ngày gửi</th>
+                <th scope="col">Chi phí</th>
+                <th scope="col">Hành động</th>
+
+                @foreach (var item in Model)
+                {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.makg)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.tennguoigui)
+
+                    </td>
+                    <td>
+
+                        @Html.DisplayFor(modelItem => item.sdtnguoigui)
+
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.tennguoinhan)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.sdtnguoinhan)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.diachinguoinhan)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ngay)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.chiphi).000đ
+                    </td>
+                    <td>
+                        <a href="@Url.Action("Detail","KiGui",new {makg = item.makg})" target="_blank"><i class="fas fa-file-export"></i></a>
+                        <a href="@Url.Action("Delete", "KiGui", new { makg = item.makg })"><i class="fas fa-trash"></i></a>
+                    </td>
+                </tr>
+            }
+
+            </table>
+            @Html.ActionLink("Thêm kí gửi", "Create", "KiGui", new { @class = "btn btn-success btn-create" })
+
+        </div></div>

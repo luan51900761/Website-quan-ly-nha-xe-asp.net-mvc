@@ -1,0 +1,93 @@
+﻿
+@model EF.EF.chuyenxe
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+@section Header{
+    Chỉnh sửa thông tin chuyến xe
+}
+@{
+    ViewBag.Title = "Create";
+}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/jquery.inputmask.bundle.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.time-mask').inputmask("hh:mm:ss", {
+            placeholder: "hh:mm:ss",
+            showMaskOnHover: false
+        });
+    });
+</script>
+<div class="container">
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            Tên chuyến xe
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.tenchuyen, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.tenchuyen, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            Mã tuyến
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.matuyen, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.matuyen, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            Giờ đi
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.giodi, new { htmlAttributes = new { @class = "form-control time-mask" } })
+
+                @Html.ValidationMessageFor(model => model.giodi, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            Giờ đến
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.gioden, new { htmlAttributes = new { @class = "form-control time-mask" } })
+                @Html.ValidationMessageFor(model => model.gioden, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            Nhân viên lơ xe
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.manv, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.manv, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            Mã xe
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.maxe, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.maxe, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            Mã tài xế
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.matx, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.matx, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Lưu" class="btn btn-success" />
+            </div>
+        </div>
+    </div>
+    }
+
+</div>

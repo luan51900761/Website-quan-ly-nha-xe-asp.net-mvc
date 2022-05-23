@@ -1,0 +1,102 @@
+﻿@model IEnumerable<EF.EF.tuyenxe>
+   
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+
+    <!-- BOOK TICKET-->
+    
+    <div class="card pt-4 pb-5 my-5">
+        
+        @using (Html.BeginForm("Index", "Start", FormMethod.Post))
+        {
+            var x = new EF.EF.tuyenxe();
+
+            <div class="form-row">
+                <div class="col form-start-place">
+                    <div class="dropdown start-place">
+                        <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                            Nơi đi
+                        </button>
+                        <ul class="dropdown-menu p-2" aria-labelledby="dropdownMenu1">
+                            <li><a href="#" data-value="action">Hồ Chí Minh</a></li>
+                            <li><a href="#" data-value="another action">Đà Lạt</a></li>
+                            <li><a href="#" data-value="something else here">Phan Thiết</a></li>
+                            <li><a href="#" data-value="separated link">Vũng Tàu</a></li>
+                            <li><a href="#" data-value="separated link">Đà Nẵng</a></li>
+
+                        </ul>
+                    </div>
+                    <input type="text" class="form-ticket input-start-place" id="input-start-place" placeholder="City" value="" name="from">
+                </div>
+                <div class="col form-end-place">
+                    <div class="dropdown end-place">
+                        <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                            Nơi đến
+                        </button>
+                        <ul class="dropdown-menu p-2" aria-labelledby="dropdownMenu1">
+                            <li><a href="#" data-value="action">Hồ Chí Minh</a></li>
+                            <li><a href="#" data-value="another action">Đà Lạt</a></li>
+                            <li><a href="#" data-value="something else here">Phan Thiết</a></li>
+                            <li><a href="#" data-value="separated link">Vũng Tàu</a></li>
+                            <li><a href="#" data-value="separated link">Đà Nẵng</a></li>
+
+                        </ul>
+                    </div>
+                    <input type="text" class="form-ticket input-end-place" id="input-end-place" placeholder="State" value="" name="to">
+                </div>
+            </div>
+
+            <button class="btn btn-success button-search-trip" onclick="checkin();">
+                <i class="fa fa-search"></i> Tìm chuyến xe
+            </button>
+        }
+
+    </div>
+    
+    <!-- CARD POPULAR TRIP-->
+    <div class="content-popular-trip">
+        <div class="row justify-content-center" style="gap: 46px;">
+            @{ int i = 0;}
+            @foreach (var item in Model)
+            {
+                if (i > 7)
+                {
+                    break;
+                }
+                i = i + 1;
+            <div class="card col-md-5 zoom p-0" style="max-width: 700px;">
+                <a class="h-100" href="@Url.Action("Index","Schedule")">
+                    <div class="h-100 row no-gutters">
+                        <div class="col-md-4">
+                            <img src=@Html.DisplayFor(modelItem => item.image) class="h-100 card-img" alt="...">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">@Html.DisplayFor(modelItem => item.diemdi) → @Html.DisplayFor(modelItem => item.diemden)</h5>
+                                <div style="color: #555" class="card-text"> <i class="fas fa-money-bill-wave-alt">&nbsp;</i>@Html.DisplayFor(modelItem => item.banggia).000đ &emsp; <i class="fas fa-clock"></i> @Html.DisplayFor(modelItem => item.thoigian)H</div>
+                            </div>
+                        </div>
+                    </div>
+                    </a>
+            </div>
+            }
+        </div>
+    </div>
+
+    <!-- FOUNDER-->
+    <div class="content-founder">
+        <div class="content-founder-img row">
+            <img src="~/Content/img/istockphoto-1316769438-170667a.jpg" alt="Alternate Text" />
+        </div>
+        <div class="content-founder-title">CHẤT LƯỢNG - NIỀM TIN</div>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+﻿@model IEnumerable<EF.EF.xe>
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+@section Header{
+    Quản lí xe
+}
+@{
+    ViewBag.Title = "Bus";
+}
+<div class="container-fluid">
+    <div class="card-body p-0">
+        <table class=" table table-admin-bill">
+            <tr class="table-success">
+                <th scope="col">Mã xe</th>
+                <th scope="col">Tên xe</th>
+                <th scope="col">biển số</th>
+                <th scope="col">Tác vụ</th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.maxe)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.tenxe)
+
+                    </td>
+                    <td>
+
+                        @Html.DisplayFor(modelItem => item.bienso)
+
+                    </td>
+                    <td>
+
+                        <a href="@Url.Action("Edit","Xe", new { maxe = item.maxe }) "><i class="fa fa-cog"></i></a>&nbsp;
+                        <a href="@Url.Action("Delete","Xe", new { maxe = item.maxe })" onclick="return confirm('Bạn có muốn xóa tuyến xe này?')">
+                            <i class="far fa-trash-alt"></i>&nbsp;
+                        </a>
+                    </td>
+                </tr>
+            }
+
+        </table>
+        @Html.ActionLink("Thêm xe mới", "Create", "Xe", new { @class = "btn btn-success btn-create" })
+
+        </div></div>

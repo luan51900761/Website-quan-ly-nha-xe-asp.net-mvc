@@ -1,0 +1,74 @@
+﻿<!--THU VIỆN PHÂN TRANG-->
+@using PagedList.Mvc;
+@using PagedList;
+@model PagedList.IPagedList<EF.EF.account>
+
+
+@{
+    ViewBag.Title = "User Page";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+@section Header{
+    <h1>Danh sách</h1>
+}
+
+<body>
+    
+    <div class="container-fluid">
+        <div class="card-body p-0" >
+            <p >
+                @Html.ActionLink("Tạo mới", "Create", "User", new { @class = "btn btn-success px-5" })
+            </p>
+            @using (Html.BeginForm("Index", "User", FormMethod.Post))
+            {
+                <div class="row form-group col-md-12 justify-content-between p-0">
+                    <div class="col-8 p-0">
+                        <!--Nhớ set name. Vì không có name thì sẽ không biết dữ liệu truyền đi tên gì.-->
+                        <!--LƯU Ý LÀ NAME PHẢI ĐẶT GIỐNG TÊN BIẾN ĐƯỜNG TRUYỀN VÀO BÊN HÀM VÍ DỤ NAME = "KEYWORD" THÌ HÀM INDEX(STRING KEYWORD)-->
+
+                        <input class="form-control search-box" type="text" value="@ViewBag.Searchkey"  margin-bottom:5px" name="keyword" /><!--VIEWBAG ĐỂ HIỆN DỮ LIẸU KHI ĐÃ LOAD LẠI. CÓ THỂ DÙNG TEMPDATA-->
+                    </div>
+                    <button class="btn btn-success col-3" type="submit" value="" style="margin-left:5px">Tìm kiếm</button>
+                </div>
+            }
+            <table class="table" border-collapse="collapse">
+                <tr>
+                    <th>
+                        Tài khoản
+                    </th>
+                    <th>
+                        Vai trò
+                    </th>
+                    <th class="text-right">
+                        Tác vụ
+                    </th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+            <tr id="row_@item.username">
+                <td>
+                    @Html.DisplayFor(modelItem => item.username)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.role)
+                </td>
+                <td class="text-right">
+                    <!--SET ĐƯỜNG DẪN NHƯ TRONG ROUTE-->
+                    <a href="~/Admin/User/Edit/@item.username">Sửa</a> |
+                    @Html.ActionLink("Xóa", "Delete", "User", new { username = item.username },
+                                          new { onclick = "return confirm('Are you sure');" })
+
+                </td>
+            </tr>
+                }
+            </table>
+            <div class="pagination">
+                <!--ĐOẠN CODE PHÂN TRANG-->
+                @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page, @keyword = ViewBag.Searchkey }))
+            </div>
+        </div>
+    </div>
+    <link href="~/Content/PagedList.css" rel="stylesheet" />
+</body>
+

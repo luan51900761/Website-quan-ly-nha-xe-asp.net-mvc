@@ -1,0 +1,184 @@
+﻿
+@using EF.DAO;
+
+@model EF.CustomModel.BookTicket
+
+@{ var x = ViewData["rawdata"] as IEnumerable<EF.CustomModel.BookTicket>; 
+    var gia = ViewData["giave"].ToString();
+    TempData["machuyen"] = ViewBag.machuyen;
+}
+@{
+    var session = Session[UserDao.USER_SESSION];
+    TempData["Data1"] = session;
+}
+<div class="bookticket-title">HÓA ĐƠN</div>
+<div class="form-bookticket">
+    <div class="row">
+        <div class="col-md-8">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(false, null, new { @class = "alert alert-danger validationSumary" })
+
+
+                <div class="row">
+                    <div class="col col-md-11 form-group">
+                        @Html.TextBoxFor(model => model.hoten, "", new { @type = "text", @class = "form-control", @name = "addBill", @placeholder = "Nhập họ tên" })
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col col-md-11 form-group">
+                        @Html.TextBoxFor(model => model.SDT, "", new { @type = "text", @class = "form-control", @name = "addBill", @placeholder = "Nhập số diện thoại" })
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col col-md-11 form-group">
+                        Số lượng vé
+                        @Html.TextBoxFor(model => model.soluong, "", new { @type = "text", @id = "num_ticket", @class = "form-control", @name = "addBill", @placeholder = "", @readonly="readonly"})
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col col-md-11 form-group">
+                        Thành tiền
+                        @Html.TextBoxFor(model => model.tongtien, "", new { @type = "text", @id = "total_price", @class = "form-control", @name = "addBill", @placeholder = "", @readonly = "readonly" })
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col col-md-11 form-group">
+                        Bạn đã đặt ghế
+                        @Html.TextBoxFor(model => model.gheduocchon, "", new { @type = "text", @id = "list_seat", @class = "form-control", @name = "addBill", @placeholder = "", @readonly = "readonly" })
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-info">ĐẶT VÉ</button>
+
+               
+            }
+        </div>
+
+
+        <div class="col-md-4">
+            <div class="movie-container">
+                <span>Chọn Ghế</span>
+                <span id="movie" style="display:none;">
+                    @gia 
+                </span>
+            </div>
+            <ul class="showcase">
+                <li>
+                    <div class="seat"></div>
+                    <small>N/A</small>
+                </li>
+                <li>
+                    <div class="seat select-demo"></div>
+                    <small>Selected</small>
+                </li>
+                <li>
+                    <div class="seat occupied"></div>
+                    <small>Occupied</small>
+                </li>
+            </ul>
+            <span><i>Tầng 1</i></span>
+            <div class="container  choose-seat">
+                <div class="row">
+                    <div class="seat" id="A11"></div>
+                    <div class="seat" id="A12"></div>
+                    <div class="seat" id="A13"></div>
+                </div>
+
+                <div class="row">
+                    <div class="seat" id="A21"></div>
+                    <div class="seat" id="A22"></div>
+                    <div class="seat" id="A23"></div>
+                </div>
+
+                <div class="row">
+                    <div class="seat" id="A31"></div>
+                    <div class="seat" id="A32"></div>
+                    <div class="seat" id="A33"></div>
+
+                </div>
+
+                <div class="row">
+                    <div class="seat" id="A41"></div>
+                    <div class="seat" id="A42"></div>
+                    <div class="seat" id="A43"></div>
+
+                </div>
+
+                <div class="row">
+                    <div class="seat" id="A51"></div>
+                    <div class="seat" id="A52"></div>
+                    <div class="seat" id="A53"></div>
+
+                </div>
+
+                <div class="row">
+                    <div class="seat" id="A61"></div>
+                    <div class="seat" id="A62"></div>
+                    <div class="seat" id="A63"></div>
+
+                </div>
+            </div>
+            <span><i>Tầng 2</i></span>
+            <div class="container  choose-seat">
+                <div class="row">
+                    <div class="seat" id="B11"></div>
+                    <div class="seat" id="B12"></div>
+                    <div class="seat" id="B13"></div>
+                </div>
+
+                <div class="row">
+                    <div class="seat" id="B21"></div>
+                    <div class="seat" id="B22"></div>
+                    <div class="seat" id="B23"></div>
+                </div>
+
+                <div class="row">
+                    <div class="seat" id="B31"></div>
+                    <div class="seat" id="B32"></div>
+                    <div class="seat" id="B33"></div>
+
+                </div>
+
+                <div class="row">
+                    <div class="seat" id="B41"></div>
+                    <div class="seat" id="B42"></div>
+                    <div class="seat" id="B43"></div>
+
+                </div>
+
+                <div class="row">
+                    <div class="seat" id="B51"></div>
+                    <div class="seat" id="B52"></div>
+                    <div class="seat" id="B53"></div>
+
+                </div>
+
+                <div class="row">
+                    <div class="seat" id="B61"></div>
+                    <div class="seat" id="B62"></div>
+                    <div class="seat" id="B63"></div>
+
+                </div>
+            </div>
+
+            @foreach (var item in x)
+            {
+                <script>
+                    $(document).ready(function () {
+                        testSeat("@item.tenghe");
+                    });
+                </script>
+            }
+            <p class="text" style="display:none;">
+                You have selected <span id="count">0</span> seats for a price of $<span id="price">0</span>
+            </p>
+
+        </div>
+
+    </div>
+</div>
+<link href="~/Asset/css/BookTicket.css" rel="stylesheet" />
+
